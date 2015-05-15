@@ -37,7 +37,6 @@ var createGameLoop = function() {
     };
 
     var draw = function() {
-        var svgSpec = 'http://www.w3.org/2000/svg';
         var shipEl = document.getElementById('ship');
 
         shipEl.setAttribute('x', ship.xPos);

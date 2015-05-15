@@ -14,8 +14,7 @@ var ship = game.objs.ship;
  */
 var createShip = function() {
     var svg = document.getElementById('game-board');
-    var svgSpec = 'http://www.w3.org/2000/svg';
-    var rect = document.createElementNS(svgSpec, 'rect');
+    var rect = document.createElementNS(SVG_SPEC, 'rect');
 
     var xPos = 10;
     var yPos = 10;
