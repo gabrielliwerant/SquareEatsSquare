@@ -17,10 +17,14 @@ var createEnemy = function() {
     var rect = document.createElementNS(SVG_SPEC, 'rect');
     var gameBoard = game.objs.board;
 
-    var xPos = 100;
-    var yPos = 100;
-    var width = 10;
-    var height = 10;
+    var getRandomInt = function(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+    };
+
+    var width = getRandomInt(10, 40);
+    var height = getRandomInt(10, 40);
+    var xPos = getRandomInt(100, gameBoard.width - width);
+    var yPos = getRandomInt(100, gameBoard.height - height);
 
     var init = function() {
         rect.setAttribute('x', xPos);
