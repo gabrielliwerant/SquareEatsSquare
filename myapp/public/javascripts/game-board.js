@@ -22,7 +22,12 @@ var getGameBoard = function() {
     return {
         width: width,
         height: height,
-        area: area
+        area: area,
+        topBound: 0,
+        rightBound: width - border,
+        leftBound: 0,
+        bottomBound: height - border
+
     }
 };
 
