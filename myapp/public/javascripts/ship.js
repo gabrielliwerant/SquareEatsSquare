@@ -18,13 +18,19 @@ var createShip = function() {
 
     var xPos = 10;
     var yPos = 10;
+    var width = 50;
+    var height = 50;
 
     var speed = 5;
 
+    var cancelMovement = function() {
+        game.keypress = '';
+    };
+
     rect.setAttribute('x', xPos);
     rect.setAttribute('y', yPos);
-    rect.setAttribute('width', 50);
-    rect.setAttribute('height', 50);
+    rect.setAttribute('width', width);
+    rect.setAttribute('height', height);
     rect.id = 'ship';
 
     svg.appendChild(rect);
@@ -32,18 +38,53 @@ var createShip = function() {
     return {
         xPos: xPos,
         yPos: yPos,
-        updateXPosRight: function() {
-            this.xPos += speed;
+        area: width * height,
+        updateYPosUp: function() {
+            if (this.yPos - speed < gameBoard.topBound) {
+                console.log('top boundary hit');
+
+                this.cancelMovement();
+
+                return false;
+            }
+
+            this.yPos -= speed;
         },
         updateXPosLeft: function() {
             if (this.xPos - speed < gameBoard.leftBound) {
                 console.log('left boundary hit');
 
+                this.cancelMovement();
+
                 return false;
             }
 
             this.xPos -= speed;
-        }
+        },
+        updateYPosDown: function() {
+            if (this.yPos + height + speed > gameBoard.bottomBound) {
+                console.log('bottom boundary hit');
+
+                this.cancelMovement();
+
+                return false;
+            }
+
+            this.yPos += speed;
+        },
+        updateXPosRight: function() {
+            if (this.xPos + width + speed > gameBoard.rightBound)
+            {
+                console.log('right boundary hit');
+
+                this.cancelMovement();
+
+                return false;
+            }
+
+            this.xPos += speed;
+        },
+        cancelMovement: cancelMovement
     }
 };
 

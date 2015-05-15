@@ -15,8 +15,8 @@ var createGameLoop = function() {
     var lastCycleKeypress = '';
 
     var update = function() {
-        if (typeof(game.keypress.keyCode) === 'undefined') {
-            return;
+        if (typeof(game.keypress.keyCode) === 'undefined' || game.keypress.keyCode === '') {
+            return false;
         }
 
         console.log(game.keypress);
@@ -25,8 +25,14 @@ var createGameLoop = function() {
             case LOWER_CASE_Q_KEY_CODE:
                 this.end();
                 break;
+            case LOWER_CASE_W_KEY_CODE:
+                ship.updateYPosUp();
+                break;
             case LOWER_CASE_A_KEY_CODE:
                 ship.updateXPosLeft();
+                break;
+            case LOWER_CASE_S_KEY_CODE:
+                ship.updateYPosDown();
                 break;
             case LOWER_CASE_D_KEY_CODE:
                 ship.updateXPosRight();
@@ -40,6 +46,7 @@ var createGameLoop = function() {
         var shipEl = document.getElementById('ship');
 
         shipEl.setAttribute('x', ship.xPos);
+        shipEl.setAttribute('y', ship.yPos);
     };
 
     var run = function() {
