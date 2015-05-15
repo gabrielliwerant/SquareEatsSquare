@@ -27,6 +27,55 @@ var createShip = function() {
         game.keypress = '';
     };
 
+    var updateYPosUp = function() {
+        if (this.yPos - speed < gameBoard.topBound) {
+            console.log('top boundary hit');
+
+            this.cancelMovement();
+
+            return false;
+        }
+
+        this.yPos -= speed;
+    };
+
+    var updateXPosLeft = function() {
+        if (this.xPos - speed < gameBoard.leftBound) {
+            console.log('left boundary hit');
+
+            this.cancelMovement();
+
+            return false;
+        }
+
+        this.xPos -= speed;
+    };
+
+    var updateYPosDown = function() {
+        if (this.yPos + height + speed > gameBoard.bottomBound) {
+            console.log('bottom boundary hit');
+
+            this.cancelMovement();
+
+            return false;
+        }
+
+        this.yPos += speed;
+    };
+
+    var updateXPosRight = function() {
+        if (this.xPos + width + speed > gameBoard.rightBound)
+        {
+            console.log('right boundary hit');
+
+            this.cancelMovement();
+
+            return false;
+        }
+
+        this.xPos += speed;
+    };
+
     rect.setAttribute('x', xPos);
     rect.setAttribute('y', yPos);
     rect.setAttribute('width', width);
@@ -39,53 +88,12 @@ var createShip = function() {
         xPos: xPos,
         yPos: yPos,
         area: width * height,
-        updateYPosUp: function() {
-            if (this.yPos - speed < gameBoard.topBound) {
-                console.log('top boundary hit');
-
-                this.cancelMovement();
-
-                return false;
-            }
-
-            this.yPos -= speed;
-        },
-        updateXPosLeft: function() {
-            if (this.xPos - speed < gameBoard.leftBound) {
-                console.log('left boundary hit');
-
-                this.cancelMovement();
-
-                return false;
-            }
-
-            this.xPos -= speed;
-        },
-        updateYPosDown: function() {
-            if (this.yPos + height + speed > gameBoard.bottomBound) {
-                console.log('bottom boundary hit');
-
-                this.cancelMovement();
-
-                return false;
-            }
-
-            this.yPos += speed;
-        },
-        updateXPosRight: function() {
-            if (this.xPos + width + speed > gameBoard.rightBound)
-            {
-                console.log('right boundary hit');
-
-                this.cancelMovement();
-
-                return false;
-            }
-
-            this.xPos += speed;
-        },
+        updateYPosUp: updateYPosUp,
+        updateXPosLeft: updateXPosLeft,
+        updateYPosDown: updateYPosDown,
+        updateXPosRight: updateXPosRight,
         cancelMovement: cancelMovement
-    }
+    };
 };
 
 // Create ship
