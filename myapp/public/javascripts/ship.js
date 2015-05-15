@@ -36,6 +36,12 @@ var createShip = function() {
             this.xPos += speed;
         },
         updateXPosLeft: function() {
+            if (this.xPos - speed < gameBoard.leftBound) {
+                console.log('left boundary hit');
+
+                return false;
+            }
+
             this.xPos -= speed;
         }
     }
