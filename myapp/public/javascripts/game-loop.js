@@ -25,6 +25,9 @@ var createGameLoop = function() {
             case LOWER_CASE_Q_KEY_CODE:
                 this.end();
                 break;
+            case LOWER_CASE_A_KEY_CODE:
+                ship.updateXPosLeft();
+                break;
             case LOWER_CASE_D_KEY_CODE:
                 ship.updateXPosRight();
                 break;
