@@ -11,8 +11,9 @@
  */
 var createGameLoop = function() {
     var fps = 60;
-
     var lastCycleKeypress = '';
+    var ship = game.objs.ship;
+    var enemy = game.objs.enemy;
 
     var update = function() {
         if (typeof(game.keypress.keyCode) === 'undefined' || game.keypress.keyCode === '') {
@@ -27,15 +28,19 @@ var createGameLoop = function() {
                 break;
             case LOWER_CASE_W_KEY_CODE:
                 ship.updateYPosUp();
+                ship.detectEnemyCollision();
                 break;
             case LOWER_CASE_A_KEY_CODE:
                 ship.updateXPosLeft();
+                ship.detectEnemyCollision();
                 break;
             case LOWER_CASE_S_KEY_CODE:
                 ship.updateYPosDown();
+                ship.detectEnemyCollision();
                 break;
             case LOWER_CASE_D_KEY_CODE:
                 ship.updateXPosRight();
+                ship.detectEnemyCollision();
                 break;
         }
 

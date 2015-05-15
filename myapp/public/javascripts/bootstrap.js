@@ -10,10 +10,17 @@
  * @returns {object}
  */
 var createSquareEatsSquareGame = function() {
+    var destroy = function(objType) {
+        delete this.objs[objType];
+        this.objs[objType] = {};
+    };
+
     return {
         game: {
             keypress: '',
             loop: {},
+            destroy: destroy,
+            create: {},
             objs: {
                 board: {},
                 ship: {},

@@ -32,4 +32,4 @@ var getGameBoard = function() {
 };
 
 // Get game board
-gameBoard = getGameBoard();
+game.objs.board = getGameBoard();

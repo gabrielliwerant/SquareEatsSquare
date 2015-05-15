@@ -15,6 +15,7 @@ var ship = game.objs.ship;
 var createShip = function() {
     var svg = document.getElementById('game-board');
     var rect = document.createElementNS(SVG_SPEC, 'rect');
+    var gameBoard = game.objs.board;
 
     var xPos = 10;
     var yPos = 10;
@@ -76,25 +77,62 @@ var createShip = function() {
         this.xPos += speed;
     };
 
-    rect.setAttribute('x', xPos);
-    rect.setAttribute('y', yPos);
-    rect.setAttribute('width', width);
-    rect.setAttribute('height', height);
-    rect.id = 'ship';
+    var detectEnemyCollision = function() {
+        var enemy = squareEatsSquare.game.objs.enemy;
+        var yShip = this.yPos + this.height;
+        var xShip = this.xPos + this.width;
+        var yEnemy = enemy.yPos;
+        var xEnemy = enemy.xPos;
 
-    svg.appendChild(rect);
+        if (yShip > yEnemy) {
+            if (xShip > xEnemy) {
+                console.log('collision detected');
+
+                this.eatEnemy(enemy);
+                enemy.destroy();
+                game.create.enemy();
+            }
+        }
+    };
+
+    var eatEnemy = function(enemy) {
+        var ship = document.getElementById('ship');
+        var sizeIncrement = Math.floor((enemy.width + enemy.height) / 2);
+
+        this.width += sizeIncrement;
+        this.height += sizeIncrement;
+
+        ship.setAttribute('width', this.width);
+        ship.setAttribute('height', this.height);
+    };
+
+    var init = function() {
+        rect.setAttribute('x', xPos);
+        rect.setAttribute('y', yPos);
+        rect.setAttribute('width', width);
+        rect.setAttribute('height', height);
+        rect.id = 'ship';
+
+        svg.appendChild(rect);
+    };
+
+    init();
 
     return {
         xPos: xPos,
         yPos: yPos,
+        width: width,
+        height: height,
         area: width * height,
         updateYPosUp: updateYPosUp,
         updateXPosLeft: updateXPosLeft,
         updateYPosDown: updateYPosDown,
         updateXPosRight: updateXPosRight,
-        cancelMovement: cancelMovement
+        detectEnemyCollision: detectEnemyCollision,
+        cancelMovement: cancelMovement,
+        eatEnemy: eatEnemy
     };
 };
 
 // Create ship
-ship = createShip();
+game.objs.ship = createShip();
