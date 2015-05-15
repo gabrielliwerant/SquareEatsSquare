@@ -10,7 +10,7 @@
  * @returns {object}
  */
 var createGameLoop = function() {
-    var fps = 2;
+    var fps = 60;
 
     var lastCycleKeypress = '';
 
