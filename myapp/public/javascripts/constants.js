@@ -1,3 +1,9 @@
+/**
+ * constants.js
+ *
+ * Holds the constants for our game
+ */
+
 var LOWER_CASE_Q_KEY_CODE = 113;
 var LOWER_CASE_W_KEY_CODE = 119;
 var LOWER_CASE_A_KEY_CODE = 97;

@@ -1,20 +1,15 @@
-var ship = {};
+/**
+ * ship.js
+ *
+ * Manages creation and properties for our ship object
+ */
+
+// Alias our ship object
+var ship = game.objs.ship;
+
+// Add initial properties
 ship.xPos = 10;
 ship.yPos = 10;
-
-var createEnemyShip = function() {
-    var svg = document.getElementById('game-board');
-    var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
-
-    rect.setAttribute('x', 30);
-    rect.setAttribute('y', 60);
-    rect.setAttribute('width', 50);
-    rect.setAttribute('height', 80);
-    rect.setAttribute('style', "stroke:#000000; fill:none;");
-    rect.id = "enemy-ship";
-
-    svg.appendChild(rect);
-};
 
 ship.create = function() {
     var svg = document.getElementById('game-board');
@@ -35,4 +30,3 @@ ship.updateXPosRight = function() {
 };
 
 ship.create();
-//createEnemyShip();
