@@ -19,6 +19,8 @@ var createShip = function() {
     var xPos = 10;
     var yPos = 10;
 
+    var speed = 5;
+
     rect.setAttribute('x', xPos);
     rect.setAttribute('y', yPos);
     rect.setAttribute('width', 50);
@@ -31,10 +33,10 @@ var createShip = function() {
         xPos: xPos,
         yPos: yPos,
         updateXPosRight: function() {
-            this.xPos += 10;
+            this.xPos += speed;
         },
         updateXPosLeft: function() {
-            this.xPos -= 10;
+            this.xPos -= speed;
         }
     }
 };
