@@ -7,26 +7,38 @@
 // Alias our ship object
 var ship = game.objs.ship;
 
-// Add initial properties
-ship.xPos = 10;
-ship.yPos = 10;
-
-ship.create = function() {
+/**
+ * Main game board factory
+ *
+ * @returns {object}
+ */
+var createShip = function() {
     var svg = document.getElementById('game-board');
     var svgSpec = 'http://www.w3.org/2000/svg';
     var rect = document.createElementNS(svgSpec, 'rect');
 
-    rect.setAttribute('x', this.xPos);
-    rect.setAttribute('y', this.yPos);
+    var xPos = 10;
+    var yPos = 10;
+
+    rect.setAttribute('x', xPos);
+    rect.setAttribute('y', yPos);
     rect.setAttribute('width', 50);
     rect.setAttribute('height', 50);
     rect.id = 'ship';
 
     svg.appendChild(rect);
+
+    return {
+        xPos: xPos,
+        yPos: yPos,
+        updateXPosRight: function() {
+            this.xPos += 10;
+        },
+        updateXPosLeft: function() {
+            this.xPos -= 10;
+        }
+    }
 };
 
-ship.updateXPosRight = function() {
-    this.xPos += 10;
-};
-
-ship.create();
+// Create ship
+ship = createShip();
