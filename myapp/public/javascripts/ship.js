@@ -79,18 +79,22 @@ var createShip = function() {
 
     var detectEnemyCollision = function() {
         var enemy = squareEatsSquare.game.objs.enemy;
-        var yShip = this.yPos + this.height;
-        var xShip = this.xPos + this.width;
-        var yEnemy = enemy.yPos;
-        var xEnemy = enemy.xPos;
+        var yShipTop = this.yPos;
+        var yShipBottom = this.yPos + this.height;
+        var xShipLeft = this.xPos;
+        var xShipRight = this.xPos + this.width;
+        var yEnemyTop = enemy.yPos;
+        var yEnemyBottom = enemy.yPos + enemy.height;
+        var xEnemyLeft = enemy.xPos;
+        var xEnemyRight = enemy.xPos + enemy.width;
 
-        if (yShip > yEnemy) {
-            if (xShip > xEnemy) {
+        if (yShipBottom > yEnemyTop && yShipTop < yEnemyBottom) {
+            if (xShipRight > xEnemyLeft && xShipLeft < xEnemyRight) {
                 console.log('collision detected');
 
                 this.eatEnemy(enemy);
                 enemy.destroy();
-                game.create.enemy();
+                game.objs.enemy = game.create.enemy();
             }
         }
     };
