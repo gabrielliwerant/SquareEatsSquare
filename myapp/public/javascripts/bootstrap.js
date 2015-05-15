@@ -15,6 +15,7 @@ var createSquareEatsSquareGame = function() {
             keypress: '',
             loop: {},
             objs: {
+                board: {},
                 ship: {}
             }
         }
