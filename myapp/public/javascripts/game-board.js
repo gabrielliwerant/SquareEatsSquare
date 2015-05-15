@@ -24,9 +24,9 @@ var getGameBoard = function() {
         height: height,
         area: area,
         topBound: 0,
-        rightBound: width - border,
+        rightBound: width,
         leftBound: 0,
-        bottomBound: height - border
+        bottomBound: height
 
     }
 };
