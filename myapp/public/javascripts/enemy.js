@@ -16,15 +16,39 @@ var createEnemy = function() {
     var svg = document.getElementById('game-board');
     var rect = document.createElementNS(SVG_SPEC, 'rect');
     var gameBoard = game.objs.board;
+    var ship = game.objs.ship;
 
     var getRandomInt = function(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
     };
 
+    var getNewCoordinates = function(width, height) {
+        var x = getRandomInt(0, gameBoard.width - width);
+        var y = getRandomInt(0, gameBoard.height - height);
+
+        var enemy = squareEatsSquare.game.objs.enemy;
+        var yShipTop = ship.yPos;
+        var yShipBottom = ship.yPos + ship.height;
+        var xShipLeft = ship.xPos;
+        var xShipRight = ship.xPos + ship.width;
+
+        // If new enemy would appear inside the player square, get new coordinates
+        if (yShipBottom > y && yShipTop < y) {
+            if (xShipRight > x && xShipLeft < x) {
+                return getNewCoordinates(width, height);
+            }
+        }
+
+        return {
+            x: x,
+            y: y
+        }
+    };
     var width = getRandomInt(10, 40);
     var height = getRandomInt(10, 40);
-    var xPos = getRandomInt(100, gameBoard.width - width);
-    var yPos = getRandomInt(100, gameBoard.height - height);
+    var coordinates = getNewCoordinates(width, height);
+    var xPos = coordinates.x;
+    var yPos = coordinates.y;
 
     var init = function() {
         rect.setAttribute('x', xPos);
