@@ -26,7 +26,6 @@ var createEnemy = function() {
         var x = getRandomInt(0, gameBoard.width - width);
         var y = getRandomInt(0, gameBoard.height - height);
 
-        var enemy = squareEatsSquare.game.objs.enemy;
         var yShipTop = ship.yPos;
         var yShipBottom = ship.yPos + ship.height;
         var xShipLeft = ship.xPos;
@@ -35,6 +34,8 @@ var createEnemy = function() {
         // If new enemy would appear inside the player square, get new coordinates
         if (yShipBottom > y && yShipTop < y) {
             if (xShipRight > x && xShipLeft < x) {
+                console.log('enemy overlap');
+
                 return getNewCoordinates(width, height);
             }
         }

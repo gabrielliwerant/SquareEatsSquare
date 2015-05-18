@@ -4,9 +4,6 @@
  * Maintain game board object properties
  */
 
-// Alias our game board
-var gameBoard = game.objs.board;
-
 /**
  * Main game board factory
  *

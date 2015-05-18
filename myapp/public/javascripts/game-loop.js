@@ -13,7 +13,6 @@ var createGameLoop = function() {
     var fps = 60;
     var lastCycleKeypress = '';
     var ship = game.objs.ship;
-    var enemy = game.objs.enemy;
 
     var update = function() {
         if (typeof(game.keypress.keyCode) === 'undefined' || game.keypress.keyCode === '') {
