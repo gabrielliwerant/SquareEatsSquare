@@ -14,4 +14,4 @@ document.onkeypress = function(event) {
 game.loop._intervalId = setInterval(game.loop.run, 1000 / game.loop.fps);
 
 // Game timer
-game.loop._gameOverIntervalId = setInterval(game.loop.end, 15000);
+game.loop._gameOverIntervalId = setInterval(game.loop.end, 30000);
