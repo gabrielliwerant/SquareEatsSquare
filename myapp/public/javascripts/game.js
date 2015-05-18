@@ -23,6 +23,11 @@ game.loop._gameOverIntervalId = setInterval(game.loop.end, game.timeLimit * 1000
 
     var timeInterval = setInterval(function() {
         document.getElementById("timer").innerHTML = i;
-        i-- || (clearInterval(timeInterval), callback());
+
+        i -= 1;
+
+        if (i === 0) {
+            clearInterval(timeInterval);
+        }
     }, 1000);
 }());
