@@ -17,10 +17,10 @@ var createShip = function() {
     var rect = document.createElementNS(SVG_SPEC, 'rect');
     var gameBoard = game.objs.board;
 
-    var xPos = 10;
-    var yPos = 10;
-    var width = 50;
-    var height = 50;
+    var xPos = 225;
+    var yPos = 225;
+    var width = 25;
+    var height = 25;
 
     var speed = 5;
 

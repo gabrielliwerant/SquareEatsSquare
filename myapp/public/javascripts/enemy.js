@@ -44,7 +44,7 @@ var createEnemy = function() {
             y: y
         }
     };
-    var width = getRandomInt(10, 40);
+    var width = getRandomInt(2, 10);
     var height = width;
     var coordinates = getNewCoordinates(width, height);
     var xPos = coordinates.x;
