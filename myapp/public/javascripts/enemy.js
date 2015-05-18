@@ -43,7 +43,7 @@ var createEnemy = function() {
         return {
             x: x,
             y: y
-        }
+        };
     };
     var width = getRandomInt(2, 10);
     var height = width;

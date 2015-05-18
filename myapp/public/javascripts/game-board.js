@@ -24,8 +24,7 @@ var getGameBoard = function() {
         rightBound: width,
         leftBound: 0,
         bottomBound: height
-
-    }
+    };
 };
 
 // Get game board

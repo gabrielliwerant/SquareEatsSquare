@@ -28,7 +28,7 @@ var createSquareEatsSquareGame = function() {
                 score: {}
             }
         }
-    }
+    };
 };
 
 // Create initial game object with namespace

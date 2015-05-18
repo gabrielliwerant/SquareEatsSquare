@@ -27,7 +27,7 @@ var createScore = function() {
     return {
         value: initialScore,
         update: update
-    }
+    };
 };
 
 // Get game board
