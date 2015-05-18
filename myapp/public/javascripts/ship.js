@@ -58,6 +58,9 @@ var createShip = function() {
 
             this.cancelMovement();
 
+            // Move to boundary
+            this.yPos += gameBoard.bottomBound - (this.yPos + this.height);
+
             return false;
         }
 
@@ -70,6 +73,9 @@ var createShip = function() {
             console.log('right boundary hit');
 
             this.cancelMovement();
+
+            // Move to boundary
+            this.xPos += gameBoard.rightBound - (this.xPos + this.width);
 
             return false;
         }
