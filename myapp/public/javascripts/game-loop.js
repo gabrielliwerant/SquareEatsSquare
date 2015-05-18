@@ -60,7 +60,13 @@ var createGameLoop = function() {
     };
 
     var end = function() {
-        clearInterval(gameLoop._intervalId);
+        console.log('game over');
+
+        var alert = document.getElementById('alert');
+        alert.innerHTML = 'GAME OVER (Refresh browser to play again.)';
+
+        clearInterval(game.loop._intervalId);
+        clearInterval(game.loop._gameOverIntervalId);
     };
 
     return {
