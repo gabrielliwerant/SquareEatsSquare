@@ -16,6 +16,7 @@ var createShip = function() {
     var svg = document.getElementById('game-board');
     var rect = document.createElementNS(SVG_SPEC, 'rect');
     var gameBoard = game.objs.board;
+    var score = game.objs.score;
 
     var xPos = 225;
     var yPos = 225;
@@ -99,6 +100,7 @@ var createShip = function() {
                 console.log('collision detected');
 
                 this.eatEnemy(enemy);
+                score.update(enemy.area);
                 enemy.destroy();
                 game.objs.enemy = game.create.enemy();
             }

@@ -24,7 +24,8 @@ var createSquareEatsSquareGame = function() {
             objs: {
                 board: {},
                 ship: {},
-                enemy: {}
+                enemy: {},
+                score: {}
             }
         }
     }
