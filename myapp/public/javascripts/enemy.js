@@ -45,7 +45,7 @@ var createEnemy = function() {
         }
     };
     var width = getRandomInt(10, 40);
-    var height = getRandomInt(10, 40);
+    var height = width;
     var coordinates = getNewCoordinates(width, height);
     var xPos = coordinates.x;
     var yPos = coordinates.y;
@@ -54,7 +54,7 @@ var createEnemy = function() {
         rect.setAttribute('x', xPos);
         rect.setAttribute('y', yPos);
         rect.setAttribute('width', width);
-        rect.setAttribute('height', height);
+        rect.setAttribute('height', width);
         rect.id = 'enemy';
 
         svg.appendChild(rect);
@@ -77,8 +77,8 @@ var createEnemy = function() {
         xPos: xPos,
         yPos: yPos,
         width: width,
-        height: height,
-        area: width * height,
+        height: width,
+        area: width * width,
         destroy: destroy
     };
 };
