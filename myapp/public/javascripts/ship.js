@@ -29,7 +29,7 @@ var createShip = function() {
     };
 
     var updateYPosUp = function() {
-        if (this.yPos - speed < gameBoard.topBound) {
+        if (this.yPos - this.speed < gameBoard.topBound) {
             console.log('top boundary hit');
 
             this.cancelMovement();
@@ -37,11 +37,11 @@ var createShip = function() {
             return false;
         }
 
-        this.yPos -= speed;
+        this.yPos -= this.speed;
     };
 
     var updateXPosLeft = function() {
-        if (this.xPos - speed < gameBoard.leftBound) {
+        if (this.xPos - this.speed < gameBoard.leftBound) {
             console.log('left boundary hit');
 
             this.cancelMovement();
@@ -49,11 +49,11 @@ var createShip = function() {
             return false;
         }
 
-        this.xPos -= speed;
+        this.xPos -= this.speed;
     };
 
     var updateYPosDown = function() {
-        if (this.yPos + height + speed > gameBoard.bottomBound) {
+        if (this.yPos + this.height + this.speed > gameBoard.bottomBound) {
             console.log('bottom boundary hit');
 
             this.cancelMovement();
@@ -61,11 +61,11 @@ var createShip = function() {
             return false;
         }
 
-        this.yPos += speed;
+        this.yPos += this.speed;
     };
 
     var updateXPosRight = function() {
-        if (this.xPos + width + speed > gameBoard.rightBound)
+        if (this.xPos + this.width + this.speed > gameBoard.rightBound)
         {
             console.log('right boundary hit');
 
@@ -74,7 +74,7 @@ var createShip = function() {
             return false;
         }
 
-        this.xPos += speed;
+        this.xPos += this.speed;
     };
 
     var detectEnemyCollision = function() {
@@ -128,6 +128,7 @@ var createShip = function() {
         width: width,
         height: height,
         area: width * height,
+        speed: speed,
         updateYPosUp: updateYPosUp,
         updateXPosLeft: updateXPosLeft,
         updateYPosDown: updateYPosDown,
