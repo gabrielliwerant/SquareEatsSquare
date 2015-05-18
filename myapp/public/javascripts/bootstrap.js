@@ -21,6 +21,7 @@ var createSquareEatsSquareGame = function() {
             loop: {},
             destroy: destroy,
             create: {},
+            timeLimit: 30,
             objs: {
                 board: {},
                 ship: {},

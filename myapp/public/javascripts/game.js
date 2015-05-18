@@ -14,4 +14,15 @@ document.onkeypress = function(event) {
 game.loop._intervalId = setInterval(game.loop.run, 1000 / game.loop.fps);
 
 // Game timer
-game.loop._gameOverIntervalId = setInterval(game.loop.end, 30000);
+game.loop._gameOverIntervalId = setInterval(game.loop.end, game.timeLimit * 1000);
+
+// Add countdown for game time limit
+// TODO: Add this to general game timer for better consistency and cleaner code
+(function countDown() {
+    var i = game.timeLimit;
+
+    var timeInterval = setInterval(function() {
+        document.getElementById("timer").innerHTML = i;
+        i-- || (clearInterval(timeInterval), callback());
+    }, 1000);
+}());

@@ -1,3 +1,7 @@
+body {
+  width: 505px;
+}
+
 svg {
   border: 10px solid black;
 }
@@ -10,4 +14,23 @@ svg {
 #enemy {
   stroke: red;
   fill: red;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
+}
+
+#score-board .status:first-child {
+  float: left;
+}
+#score-board .status:last-child {
+  float: right;
 }
