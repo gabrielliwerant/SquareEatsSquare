@@ -4,6 +4,7 @@
  * Manages the creation and properties for our game loop object
  */
 
+(function() {
 /**
  * Main game loop factory
  *
@@ -79,4 +80,5 @@ var createGameLoop = function() {
 };
 
 // Create game loop
-game.loop = createGameLoop();
+    game.loop = createGameLoop();
+}());
