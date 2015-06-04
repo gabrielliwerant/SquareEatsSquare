@@ -9,7 +9,7 @@
     var ship = game.objs.ship;
 
     /**
-     * Main game board factory
+     * Main ship factory
      *
      * @returns {object}
      */
