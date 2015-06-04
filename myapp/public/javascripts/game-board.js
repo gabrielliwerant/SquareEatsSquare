@@ -14,7 +14,7 @@
         var gameBoard = document.getElementById('game-board');
         var width = gameBoard.width.baseVal.value;
         var height = gameBoard.height.baseVal.value;
-        var border = 10;
+        var border = 2;
         var area = (width - border) * (height - border);
 
         return {
