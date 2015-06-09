@@ -50,7 +50,12 @@ module.exports = function(grunt) {
 
         nodemon: {
             dev: {
-                script: 'bin/www'
+                script: 'bin/www',
+                options: {
+                    env: {
+                        PORT: '4500'
+                    }
+                }
             }
         }
     });

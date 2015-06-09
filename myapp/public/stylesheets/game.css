@@ -1,36 +1,40 @@
 body {
-  width: 505px;
+  background-color: #000000;
 }
 
 svg {
-  border: 10px solid black;
+  border: 2px solid #ffffff;
+}
+
+.container {
+  width: 504px;
+  margin: auto;
+  padding-top: 10px;
+  color: #ffffff;
+  font-family: "Helvetica Neue Light", "Arial", sans-serif;
+  font-size: 14px;
+}
+
+.intro {
+  margin-bottom: 10px;
 }
 
 #ship {
-  stroke: blue;
-  fill: blue;
+  stroke: #ffffff;
+  fill: #ffffff;
 }
 
 #enemy {
-  stroke: red;
-  fill: red;
+  stroke: #ffffff;
+  fill: #ffffff;
 }
 
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table;
+.score-board {
+  margin-bottom: 10px;
 }
-.clearfix:after {
-  clear: both;
-}
-.clearfix {
-  *zoom: 1;
-}
-
-#score-board .status:first-child {
+.score-board .status:first-child {
   float: left;
 }
-#score-board .status:last-child {
+.score-board .status:last-child {
   float: right;
 }
