@@ -6,7 +6,7 @@ A game of squares
 
 1. `npm install`
 2. `grunt nodemon`
-3. Navigate to `http://localhost:666` in browser (only tested in Chrome)
+3. Navigate to `http://localhost:4500` in browser (only tested in Chrome)
 4. `grunt dev` (optional, builds for production version)
 
 ### How to Play
